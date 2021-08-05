@@ -2,18 +2,24 @@
 import express from "express";
 import bodyParser from "body-parser";
 
-import usersRoutes from "./routes/users.js";
+import updateRoutes from "./routes/update.js";
+//import usersRoutes from "./routes/users.js";
 
 const app = express();
 const PORT = 5000;
 
 app.use(bodyParser.json());
 
-app.use("/users", usersRoutes);
+//
+    //xd-app.use("/update", update_info);
+//
+
+//app.use("/users", usersRoutes);
+app.use("/update", updateRoutes);   //dc-
 
 app.get("/",(req, res) => {
     console.log("[TEST]");
-    res.send("hello, wlecome to the homepage"); });
+    res.send("hello ~ welcome to the Debug Server homepage"); });
 
 app.all("*", (req, res) =>res.send("You've tried reaching a route that doesn't exist."));
 
